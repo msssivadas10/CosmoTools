@@ -1,0 +1,68 @@
+/**************************************************
+ * styles for CosmoTools home page                * 
+ **************************************************/
+
+html, body {
+
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18pt;
+}
+
+.main-body-container {
+
+    display: block;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+}
+
+.my-logo {
+
+    display: block;
+    margin: 20px auto;
+}
+
+.my-description {
+
+    width: 80%;
+    margin: auto;
+}
+
+.my-description ul {
+
+    list-style-type: none;
+}
+
+.my-description ul li {
+
+    margin: 10px;
+}
+
+.my-description ul li a {
+
+    font-weight: bold;
+    color: black;
+    margin: 2px;
+}
+
+.my-description ul li a:hover {
+
+    color: #00aad4;
+}
+
+h1 {
+
+    font-size: 48pt;
+    font-weight: bolder;
+    margin: 100px auto;
+}
+
+hr {
+
+    border-style: none;
+    border-bottom-style: solid;
+    border-width: 1px;
+    width: 80%;
+}

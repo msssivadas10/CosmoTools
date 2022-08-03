@@ -1,0 +1,675 @@
+:root {
+
+    --orange1: #fd5901;
+    --orange2: #f78104;
+    --lightorange: #faab36;
+}
+
+/***********************************************************
+ * styles specific to the cosmology setup page             *
+ ***********************************************************/
+
+/* html and body styles */
+html, body {
+
+    margin: 0;
+    padding: 0;
+    font-family: Roboto, Helvetica, sans-serif;
+    font-size: 12pt;
+    background-color: #fefefe;
+}
+
+/* main body container class */
+.calc-body-container {
+
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 10px 10px 10px;
+}
+
+/* cosmology form */
+.calc-body-container form {
+
+    padding: 10px;
+    margin: 10px;
+}
+
+/* cosmology set-up tab */
+
+.cosmo-setup-form-container {
+
+    border-style: none;
+    margin: 10px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+/* cosmology submit button holder */
+.cosmo-button-holder {
+
+    width: 50%;
+    height: 40px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/********************************************************
+ * styles for the calculator page                       *
+ ********************************************************/
+
+/* calulator container class */
+.calc-container {
+
+    width: 100%;
+    margin: 10px auto;
+    padding: 10px;
+    border-style: none;
+    text-align: left;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    background-color: #fff;
+}
+
+.calc-container hr {
+
+    border-style: none none solid none;
+    border-width: 1px;
+}
+
+/*
+ * collapsible content 
+ */
+
+/* collapse toggle button */
+.collapsible-btn {
+
+    width: 100%;
+    height: 40px;
+    background-color: #eee;
+    border-style: none;
+    color: black;
+    font-size: 12pt;
+    font-family: Roboto, Helvetica, sans-serif;
+    /* font-weight: 600; */
+    text-align: left;
+    padding-left: 20px;
+}
+
+.collapsible-btn:hover {
+
+    cursor: pointer;
+}
+
+.active {
+
+    background-color: #555;
+}
+
+/* collapsible content container class */
+.collapsible-content {
+
+    display: none;
+    background-color: #f5f5f5;
+}
+
+/* 
+ * calculator buttons 
+ */ 
+
+ /* button holder */
+.btn-holder {
+
+    width: 100%;
+    display: flex;
+}
+
+/* calculate button */
+.calc-btn {
+
+    width: 100px;
+    height: 40px;
+    font-size: 12pt;
+    margin: 10px auto;
+}
+
+/* 
+ * alert messages for error
+ */
+
+/* alert container class */
+.alert-box {
+
+    padding: 20px;
+    margin: 10px auto;
+    display: none;
+    background-color: #f44336;
+    color: white;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+/* alert close button */ 
+.close-alert-btn {
+
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22pt;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+.close-alert-btn:hover {
+
+    color: black;
+}
+
+/* 
+ * tables 
+ */ 
+
+/* table container */
+#table-viewer {
+
+    display: none;
+    width: 95%;
+    overflow-x: scroll;
+}
+
+/* styled tables  */
+.my-table {
+
+    margin: 10px auto;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.my-table td, .my-table th {
+
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.my-table th {
+
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: var(--orange2);
+    color: white;
+}
+
+.my-table tr:nth-child(even){
+
+    background-color: #f2f2f2;
+}
+
+.my-table tr:hover {
+
+    background-color: #ddd;
+}
+
+/* 
+ * control and menu buttons
+ */
+
+ /* control button container class */
+.ctrl-container {
+
+    margin: 10px auto;
+    display: flex;
+    height: 50px;
+    background-color: #eee;
+    color: black;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+/* control button */
+.ctrl-btn {
+
+    width: 50px;
+    height: 50px;
+    border-style: none;
+    background-color: #eee;
+}
+
+/* control button icon styles */
+.ctrl-btn img {
+
+    width: 25px;
+}
+
+.ctrl-btn:hover {
+
+    background-color: #ddd;
+}
+
+#img-btn {
+
+    border-radius: 50%;
+    margin: 10px;
+}
+
+#my-viewer {
+
+    display: none;
+}
+
+/* advansed calculator options */
+.advansed-opts {
+
+    width: 100%;
+    margin: 0;
+}
+
+
+/* current selected option */
+.active-opt {
+
+    background-color: #ddd;
+    border-bottom-style: solid;
+    border-bottom-width: 5px;
+    border-bottom-color: var(--orange2);
+}
+
+/* 
+ * calculator mode selection 
+ */
+
+/* mode selection container */
+.mode-select, .mode-select-group {
+
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.mode-select {
+
+    display: block;
+}
+
+.mode-select-group {
+
+    display: flex;
+}
+
+/* mode selection button */ 
+.mode-btn, .close-btn {
+
+    border-style: none;
+    width: 50%;
+    height: 40px;
+    margin: auto;
+    font-size: 12pt;
+    font-weight: bold;
+    background-color: #eee;
+}
+
+.close-btn {
+
+    width: 100%;
+}
+
+.mode-btn:hover, .close-btn:hover {
+
+    border-bottom-style: solid;
+    border-bottom-width: 5px;
+}
+
+.mode-btn:hover {
+
+    border-bottom-color: var(--orange2);
+}
+
+.close-btn:hover {
+
+    border-bottom-color: #f44336;
+}
+
+.active-mode {
+
+    background-color: var(--orange2);
+    color: white;
+}
+
+/* 
+ * chart options styles 
+ */
+
+/* options container */
+.chart-opt-container {
+
+    display: flex;
+    margin: auto;
+    margin-top: 10px;
+}
+
+/* axis options list */
+.chart-opt-ax {
+
+    width: 50%;
+}
+
+.chart-opt-ax ul {
+
+    list-style-type: none;
+}
+
+#ps-chart-opts {
+
+    display: flex;
+}
+
+/* 
+ * chart area styles 
+ */
+
+#chart-viewer {
+
+    display: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* chart area class */
+.chart-area {
+
+    width: 95%;
+    height: 100%;
+    min-height: 480px;
+    margin: auto;
+    padding: 0;
+    overflow-y: hidden;
+    overflow-x: scroll;
+}
+
+#my-chart {
+
+    width: 100%; 
+    height: 100%;
+    min-width: 640px;
+    min-height: 480px;
+}
+
+/****************************************************
+ * styles for input elements                        *
+ ****************************************************/
+
+/* input container element */
+.input-container {
+
+    width: 50%;
+    margin: 5px 20px;
+}
+
+/* input set element */
+.cosmo-input-set {
+
+    display: flex;
+    margin-right: 20px;
+}
+
+/* input style */
+.cosmo-input {
+
+    width: 95%;
+    margin: 10px 0;
+}
+
+/* input text and number boxes */
+.my-text {
+
+    min-width: 250px;
+    width: 100%;
+    height: 30px;
+    font-size: 12pt;
+    font-family: Roboto, Helvetica, sans-serif;
+    margin: 10px 0 10px 10px;
+    padding: 2px;
+    border: none;
+    border-bottom: 1px solid #aaa;
+}
+
+/* submit buttons */
+.my-submit {
+
+    width: 150px;
+    height: 40px;
+    margin: 10px auto;
+    background-color: var(--orange2);
+    color: white;
+    font-size: 12pt;
+    font-family: Roboto, Helvetica, sans-serif;
+    border-radius: 10px;
+    border-style: none;
+}
+
+.my-submit:hover {
+
+    background-color: var(--lightorange);
+    box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
+}
+
+.my-submit:active {
+
+    background-color: var(--orange1);
+}
+
+/* input select tags */ 
+.my-select {
+
+    width: 200px;
+    height: 40px;
+    font-size: 12pt;
+    font-family: Roboto, Helvetica, sans-serif;
+    margin: 10px 5px 10px 5px;
+    background-color: #eee;
+    border-style: none;
+    text-align: center;
+}
+
+.my-select:hover {
+
+    box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
+}
+
+/* 
+ * styles for descriptions 
+ */
+
+.description {
+
+    width: 90%;
+    margin: 40px auto;
+    text-align: center;
+    color: #444;
+}
+
+/* 
+ * calculator title bar
+ */
+
+.title-bar {
+
+    width: 100%;
+    height: 80px;
+    display: flex;
+    background-color: #fff;
+}
+
+.title-bar img {
+
+    height: 60px;
+    margin-top: 10px;
+    margin-left: 10px;
+    display: block;
+}
+
+/*
+ * top navigation bar
+ */
+
+ .topnav {
+
+    background-color: #fff;
+    overflow: hidden;
+    width: 100%;
+}
+
+.topnav a {
+
+    float: left;
+    display: block;
+    color: #444;
+    text-align: center;
+    padding: 12px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a:hover {
+
+    background-color: #ddd;
+    color: black;
+}
+
+#menu-btn {
+
+    display: none;
+    position: absolute;
+    right: 5px;
+    top: 20px;
+    width: 40px;
+    height: 40px;
+    font-size: 22pt;
+    border-style: none;
+    background-color: #fff;
+    color: #444;
+}
+
+.topbar {
+
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
+}
+
+.topbar + .calc-body-container {
+
+    padding-top: 150px;
+}
+
+
+/* responsive design (for devise width < 800 px) */
+
+@media screen and (max-width: 800px) {
+
+    .cosmo-input-set {
+
+        display: block;
+    }
+
+    .input-container {
+
+        width: 90%;
+        margin: 10px auto;
+    }
+
+    .description {
+
+        text-align: center;
+    }
+
+    #table-viewer {
+
+        width: 95%;
+        overflow-x: scroll;
+    }
+
+    .chart-opt-container {
+
+        display: block;
+    }
+
+    .chart-opt-ax {
+
+        width: 95%;
+        display: block;
+    }
+
+    .mode-select-group {
+
+        display: block;
+    }
+
+    .mode-btn, .close-btn {
+
+        width: 100%;
+    }
+
+    .mode-btn:hover, .close-btn:hover {
+
+        border-bottom-style: none;
+        border-left-style: solid;
+        border-left-width: 5px;
+    }
+
+    .mode-btn:hover, .close-btn:hover {
+
+        border-left-color: var(--orange2);
+    }
+
+    .close-btn:hover {
+
+        border-left-color: #f44336;
+    }
+
+    .my-select {
+
+        width: 100%;
+        margin: auto;
+    }
+
+    #ps-chart-opts {
+
+        display: block;
+    }
+
+    .title-bar img {
+        height: 40px;
+        margin: 20px 20px;
+        display: block;
+    }
+
+    .topnav a{
+
+        display: none;
+    }
+
+    .topnav a.icon {
+        float: right;
+        display: block;
+    }
+
+    .topnav.responsive {
+        
+        position: relative;
+    }
+
+    #menu-btn {
+        display: block;
+    }
+    
+    .topnav.responsive a {
+        float: none;
+        display: block;
+        text-align: center;
+    }
+
+    
+}
+
