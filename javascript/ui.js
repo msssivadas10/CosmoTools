@@ -765,7 +765,7 @@ function cosmoToolsUI(){
         }
         document.getElementById("chart-yval").innerHTML = opts;
 
-        rad = document.getElementsByName("chartXscale");
+        rad = document.getElementsByName("chartYscale");
         for (let i = 0; i < rad.length; i++ ){
             rad[i].checked = (i == yscale);
         }
