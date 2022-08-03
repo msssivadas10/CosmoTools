@@ -1,2 +1,2 @@
-# CosmoJS
-A javascript library for cosmological calculations
+# CosmoTools
+A javascript library and calculator for cosmological calculations
