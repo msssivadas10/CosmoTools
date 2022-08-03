@@ -5,17 +5,19 @@ function cosmoToolsUI(){
 
     var cm        = null, 
         myTable   = null,
-        chartURI  = null,
-        chartOpts = {};
+        chartURI  = null;
 
     /** Show or hide title bar menu */
     function showMenu(){
         var navbar = document.getElementById("my-nav");
+        var btn    = document.getElementById("menu-btn");
         if(navbar.className === "topnav"){
             navbar.className += " responsive";
+            btn.innerHTML     = "&times;"
         }
         else {
             navbar.className = "topnav";
+            btn.innerHTML    = "☰";
         }
     }
 
