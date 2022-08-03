@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<!--
+    Cosmology calculator: correlation function calculator
+-->
+
+<html>
+    
+<head>
+    
+    <title>CosmoTools: Calculators</title>
+    <link rel="shortcut icon" href="./icons/favicon.svg" type="image/x-icon">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    
+    <link rel="stylesheet" href="./styles/cosmo-calc-styles.css">
+    
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="./javascript/cosmo.js"></script>
+    <script src="./javascript/ui.js"></script>
+
+</head>
+
+<body onload="UI.getParameters();">
+
+    <div class="topbar">
+        <div class="title-bar">
+            <img src="./icons/logo.svg" alt="CosmoTools">
+            <button id="menu-btn" onclick="UI.showMenu()">☰</button>
+        </div>
+    
+        <div class="topnav" id="my-nav">
+            <a href="#home">Home</a>
+            <a href="#docs">Guide</a>
+            <a href="#about">About</a>
+        </div>
+    </div>
+    
+    <div class="calc-body-container">
+
+        <!-- Error alert box -->
+
+        <div class="alert-box">
+            <span class="close-alert-btn" onclick="this.parentElement.style.display='none';">&times</span>
+            <span id="alert-msg"></span>
+        </div>
+
+        <!-- Power spectrum calculator -->
+        <div class="calc-container" id="corr-calc">
+
+            <div class="description">
+                <h2>Correlation Function Calculator</h2>
+                <p>
+                    Calculate the matter correlation function using any of the pre-defined power spectrum models such as Eisenstein & Hu (1998) or Bardeen et al (BBKS) / Sugiyama (1995).
+                </p>
+            </div>
+
+            <label>Power spectrum model:</label>
+            <select id="model" class="my-select">
+                <option value="none">--select model--</option>
+                <option value="eisenstein98_zb">EH(1998) without BAO</option>
+                <option value="eisenstein98_bao">EH(1998) with BAO</option>
+                <option value="eisenstein98_mdm" disabled="disabled">EH(1998) MDM</option>
+                <option value="sugiyama95">Sugiyama(1995)</option>
+            </select>
+
+            <div class="cosmo-input-set" id="set-1">
+                <div class="input-container">
+                    <label>Redshift:</label><br>
+                    <input class="my-text" type="text" id="redshift"><br>
+                </div>
+                <div class="input-container">
+                    <label>Number of Rows:</label><br>
+                    <input class="my-text" type="number" id="N" min="1" max="100001" value="1001"><br>
+                </div>
+            </div>
+
+            <div class="cosmo-input-set" id="set-2">
+                <div class="input-container">
+                    <label>Lower Distance (Mpc/h):</label><br>
+                    <input class="my-text" type="text" id="ra"><br>
+                </div>
+                <div class="input-container">
+                    <label>Upper Distance (Mpc/h):</label><br>
+                    <input class="my-text" type="text" id="rb"><br>
+                </div>
+            </div>
+
+            <div class="advansed-opts">
+                
+                <button type="button" class="collapsible-btn" onclick="UI.toggleAdvancedOptions()">Advansed Options <span id="adv-opt-state">&bigtriangledown;</span></button>
+
+                <div class="collapsible-content" id="adv-opt">
+                    <div class="cosmo-input-set" id="set-3">
+                        <div class="input-container">
+                            <input type="checkbox" id="exact-growth" value="exact" checked="checked">
+                            <label>Use exact growth factor</label>
+                        </div>
+                        <div class="input-container">
+                            <label>Number of Integration Points:</label><br>
+                            <input class="my-text" type="number" id="num-integ" min="1001" max="100001" value="10001" step="2"><br>
+                        </div>
+                    </div>
+
+                    <div class="cosmo-input-set" id="set-4">
+                        <div class="input-container">
+                            <label>Lower Wavenumber (h/Mpc):</label><br>
+                            <input class="my-text" type="text" id="ka-integ" value="1E-06"><br>
+                        </div>
+                        <div class="input-container">
+                            <label>Upper Wavenumber (h/Mpc):</label><br>
+                            <input class="my-text" type="text" id="kb-integ" value="1E+06"><br>
+                        </div>
+                    </div>
+                </div> 
+
+            </div>
+
+            <hr>
+
+            <div class="alert-box">
+                <span class="close-alert-btn" onclick="this.parentElement.style.display='none';">&times</span>
+                <span id="calc-alert-msg"></span>
+            </div>
+
+            <div class="btn-holder">
+                <button type="button" class="my-submit" onclick="UI.calculateCorrfunc()">Calculate</button>
+            </div>
+                
+        </div>
+
+        <!-- Viwer: tables and charts -->
+        
+        <div class="calc-container" id="my-viewer">
+
+            <div class="ctrl-container">
+
+                <button type="button" class="ctrl-btn" id="chart-btn" title="View as Chart" onclick="UI.showChart()">
+                    <img src="./icons/chart.svg" alt="Plot">
+                </button>
+
+                <button type="button" class="ctrl-btn" id="table-btn" title="View as Table" onclick="UI.showTable()">
+                    <img src="./icons/table.svg" alt="Table">
+                </button>
+
+                <button type="button" class="ctrl-btn" id="save-btn" title="View as CSV" onclick="UI.viewDataAsCSV()">
+                    <img src="./icons/csv.svg">
+                </button>
+
+                <button type="button" class="ctrl-btn" id="close-btn" title="Close" onclick="UI.closeViewer()">
+                    <img src="./icons/close.svg">
+                </button>
+
+            </div>
+
+            <div class="alert-box" id="alert-box-viewer">
+                <span class="close-alert-btn" onclick="this.parentElement.style.display='none';">&times</span>
+                <span id="alert-msg-viewer"></span>
+            </div>
+
+            <!-- Table view -->
+            <div class="table-container" id="table-viewer">
+                <table class="my-table" id="table-1"></table>
+            </div>
+
+            <!-- Chart view -->
+            <div class="chart-container" id="chart-viewer">
+
+                <!-- Chart options -->
+                <div class="chart-opt-container" id="chart-opts">
+
+                    <!-- X axis options -->
+                    <div class="chart-opt-ax" id="x-axis-opt">
+                        <strong>X Axis</strong>
+                        <ul>
+                            <li> 
+                                <label>Data</label>
+                                <select id="chart-xval" class="my-select">
+                                    <!-- will be set by javascript -->
+                                </select>
+                            </li>
+                            <li>
+                                <label>Scale</label>
+                                <input type="radio" id="xlin" name="chartXscale">
+                                <label for="xlin">Lin</label>
+                                <input type="radio" id="xlog" name="chartXscale" checked="checked">
+                                <label for="xlog">Log</label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Y axis options -->
+                    <div class="chart-opt-ax" id="y-axis-opt">
+                        <strong>Y Axis</strong>
+                        <ul>
+                            <li>
+                                <label>Data</label>
+                                <select id="chart-yval" class="my-select">
+                                    <!-- will be set by javascript -->
+                                </select>
+                            </li>
+                            <li>
+                                <label>Scale</label>
+                                <input type="radio" id="ylin" name="chartYscale">
+                                <label for="ylin">Lin</label>
+                                <input type="radio" id="ylog" name="chartYscale" checked="checked">
+                                <label for="ylog">Log</label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Chart area -->
+
+                <button type="button" class="ctrl-btn" id="img-btn" title="View as Image" onclick="UI.viewChartAsImage()">
+                    <img src="./icons/image.svg">
+                </button>
+
+                <div class="chart-area" id="chart-area">
+                    <div id="my-chart"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

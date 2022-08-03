@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<!--
+    Cosmology calculator: calculators
+-->
+
+<html>
+    
+<head>
+    
+    <title>CosmoTools: Calculators</title>
+    <link rel="shortcut icon" href="./icons/favicon.svg" type="image/x-icon">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    
+    <link rel="stylesheet" href="./styles/cosmo-calc-styles.css">
+    
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="./javascript/cosmo.js"></script>
+    <script src="./javascript/ui.js"></script>
+
+</head>
+
+<body onload="UI.getParameters();">
+
+    <div class="topbar">
+        <div class="title-bar">
+            <img src="./icons/logo.svg" alt="CosmoTools">
+            <button id="menu-btn" onclick="UI.showMenu()">☰</button>
+        </div>
+    
+        <div class="topnav" id="my-nav">
+            <a href="#home">Home</a>
+            <a href="#docs">Guide</a>
+            <a href="#about">About</a>
+        </div>
+    </div>
+    
+    <div class="calc-body-container">
+
+        <!-- Error alert box -->
+
+        <div class="alert-box">
+            <span class="close-alert-btn" onclick="this.parentElement.style.display='none';">&times</span>
+            <span id="alert-msg"></span>
+        </div>
+
+        <div class="description">
+            <p style="text-align: center;">
+                This Cosmology Calculator has modes for the calculation of matter power spectrum, halo mass-functions etc. Select a mode to go!
+            </p>
+        </div>
+
+        <!-- Calculator mode selection -->
+
+        <div class="mode-select">
+            <div class="mode-select-group">
+                <button class="mode-btn" id="ps-mode" onclick="UI.selectMode('ps')">Matter Power Spectrum</button>
+                <button class="mode-btn" id="xi-mode" onclick="UI.selectMode('xi')">Matter Correlation</button>
+            </div>
+            <div class="mode-select-group">
+                <button class="mode-btn" id="mf-mode" onclick="UI.selectMode('mf')">Halo Mass-function</button>
+                <button class="mode-btn" id="zg-mode" onclick="UI.selectMode('zg')">Linear Growth</button>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

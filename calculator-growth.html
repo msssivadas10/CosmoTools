@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<!--
+    Cosmology calculator: growth factor calculator
+-->
+
+<html>
+    
+<head>
+    <title>CosmoTools: Calculators</title>
+    <link rel="shortcut icon" href="./icons/favicon.svg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" href="./styles/cosmo-calc-styles.css">
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="./javascript/cosmo.js"></script>
+    <script src="./javascript/ui.js"></script>
+</head>
+
+<body onload="UI.getParameters();">
+
+    <div class="topbar">
+        <div class="title-bar">
+            <img src="./icons/logo.svg" alt="CosmoTools">
+            <button id="menu-btn" onclick="UI.showMenu()">☰</button>
+        </div>
+    
+        <div class="topnav" id="my-nav">
+            <a href="#home">Home</a>
+            <a href="#docs">Guide</a>
+            <a href="#about">About</a>
+        </div>
+    </div>
+    
+    <div class="calc-body-container">
+
+        <!-- Error alert box -->
+        <div class="alert-box">
+            <span class="close-alert-btn" onclick="this.parentElement.style.display='none';">&times</span>
+            <span id="alert-msg"></span>
+        </div>
+
+        <!-- Mass function calculator -->
+        <div class="calc-container">
+
+            <div class="description">
+                <h2>Linear Growth Calculator</h2>
+                <p>
+                    Calculate the linear growth factor and its logaritmic derivative.
+                </p>
+            </div>
+
+            <div class="cosmo-input-set">
+                <div class="input-container">
+                    <label>Lower Redshift:</label><br>
+                    <input class="my-text" type="text" id="za"><br>
+                </div>
+                <div class="input-container">
+                    <label>Upper Redshift:</label><br>
+                    <input class="my-text" type="text" id="zb"><br>
+                </div>
+            </div>
+
+            <div class="cosmo-input-set">
+                <div class="input-container">
+                    <label>Number of Rows:</label><br>
+                    <input class="my-text" type="number" id="N" min="1" max="100001" value="1001"><br>
+                </div>
+                <div class="input-container">
+                    <input type="checkbox" id="exact-growth" value="exact" checked="checked">
+                    <label>Exact</label>
+                </div>
+            </div>
+
+            <hr>
+            <div class="alert-box">
+                <span class="close-alert-btn" onclick="this.parentElement.style.display='none';">&times</span>
+                <span id="calc-alert-msg"></span>
+            </div>
+
+            <div class="btn-holder">
+                <button type="button" class="my-submit" onclick="UI.calculateGrowth()">Calculate</button>
+            </div>
+                
+        </div>
+
+        <!-- Viwer: tables and charts -->
+
+        <div class="calc-container" id="my-viewer">
+
+            <div class="ctrl-container">
+
+                <button type="button" class="ctrl-btn" id="chart-btn" title="View as Chart" onclick="UI.showChart()">
+                    <img src="./icons/chart.svg" alt="Plot">
+                </button>
+
+                <button type="button" class="ctrl-btn" id="table-btn" title="View as Table" onclick="UI.showTable()">
+                    <img src="./icons/table.svg" alt="Table">
+                </button>
+
+                <button type="button" class="ctrl-btn" id="save-btn" title="View as CSV" onclick="UI.viewDataAsCSV()">
+                    <img src="./icons/csv.svg">
+                </button>
+
+                <button type="button" class="ctrl-btn" id="close-btn" title="Close" onclick="UI.closeViewer()">
+                    <img src="./icons/close.svg">
+                </button>
+
+            </div>
+
+            <div class="alert-box" id="alert-box-viewer">
+                <span class="close-alert-btn" onclick="this.parentElement.style.display='none';">&times</span>
+                <span id="alert-msg-viewer"></span>
+            </div>
+
+            <!-- Table view -->
+            <div class="table-container" id="table-viewer">
+                <table class="my-table" id="table-1"></table>
+            </div>
+
+            <!-- Chart view -->
+            <div class="chart-container" id="chart-viewer">
+
+                <!-- Chart options -->
+                <div class="chart-opt-container" id="chart-opts">
+
+                    <!-- X axis options -->
+                    <div class="chart-opt-ax" id="x-axis-opt">
+                        <strong>X Axis</strong>
+                        <ul>
+                            <li> 
+                                <label>Data</label>
+                                <select id="chart-xval" class="my-select">
+                                    <!-- will be set by javascript -->
+                                </select>
+                            </li>
+                            <li>
+                                <label>Scale</label>
+                                <input type="radio" id="xlin" name="chartXscale">
+                                <label for="xlin">Lin</label>
+                                <input type="radio" id="xlog" name="chartXscale" checked="checked">
+                                <label for="xlog">Log</label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Y axis options -->
+                    <div class="chart-opt-ax" id="y-axis-opt">
+                        <strong>Y Axis</strong>
+                        <ul>
+                            <li>
+                                <label>Data</label>
+                                <select id="chart-yval" class="my-select">
+                                    <!-- will be set by javascript -->
+                                </select>
+                            </li>
+                            <li>
+                                <label>Scale</label>
+                                <input type="radio" id="ylin" name="chartYscale">
+                                <label for="ylin">Lin</label>
+                                <input type="radio" id="ylog" name="chartYscale" checked="checked">
+                                <label for="ylog">Log</label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Chart area -->
+
+                <button type="button" class="ctrl-btn" id="img-btn" title="View as Image" onclick="UI.viewChartAsImage()">
+                    <img src="./icons/image.svg">
+                </button>
+
+                <div class="chart-area" id="chart-area">
+                    <div id="my-chart"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
