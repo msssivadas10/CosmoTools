@@ -127,17 +127,17 @@
                     <div class="chart-opt-ax" id="x-axis-opt">
                         <strong>X Axis</strong>
                         <ul>
-                            <li> 
+                            <li>
                                 <label>Data</label>
-                                <select id="chart-xval" class="my-select">
+                                <select id="chart-xval" class="my-select" onchange="UI.showChart()">
                                     <!-- will be set by javascript -->
                                 </select>
                             </li>
                             <li>
                                 <label>Scale</label>
-                                <input type="radio" id="xlin" name="chartXscale">
+                                <input type="radio" id="xlin" name="chartXscale" onchange="UI.showChart()">
                                 <label for="xlin">Lin</label>
-                                <input type="radio" id="xlog" name="chartXscale" checked="checked">
+                                <input type="radio" id="xlog" name="chartXscale" onchange="UI.showChart()">
                                 <label for="xlog">Log</label>
                             </li>
                         </ul>
@@ -149,19 +149,20 @@
                         <ul>
                             <li>
                                 <label>Data</label>
-                                <select id="chart-yval" class="my-select">
+                                <select id="chart-yval" class="my-select"  onchange="UI.showChart()">
                                     <!-- will be set by javascript -->
                                 </select>
                             </li>
                             <li>
                                 <label>Scale</label>
-                                <input type="radio" id="ylin" name="chartYscale">
+                                <input type="radio" id="ylin" name="chartYscale" onchange="UI.showChart()">
                                 <label for="ylin">Lin</label>
-                                <input type="radio" id="ylog" name="chartYscale" checked="checked">
+                                <input type="radio" id="ylog" name="chartYscale" onchange="UI.showChart()">
                                 <label for="ylog">Log</label>
                             </li>
                         </ul>
                     </div>
+                    
                 </div>
 
                 <!-- Chart area -->

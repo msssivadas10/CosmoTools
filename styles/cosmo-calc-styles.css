@@ -22,17 +22,18 @@ html, body {
 /* main body container class */
 .calc-body-container {
 
-    width: 80%;
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
-    padding: 10px 10px 10px 10px;
+    /* padding: 10px 10px 10px 10px; */
+    padding: 0;
 }
 
 /* cosmology form */
 .calc-body-container form {
 
     padding: 10px;
-    margin: 10px;
+    margin: 0;
 }
 
 /* cosmology set-up tab */
@@ -173,7 +174,7 @@ html, body {
 #table-viewer {
 
     display: none;
-    width: 95%;
+    width: 100%;
     overflow-x: scroll;
 }
 
@@ -415,14 +416,14 @@ html, body {
 /* input style */
 .cosmo-input {
 
-    width: 95%;
-    margin: 10px 0;
+    width: 100%;
+    margin: 0;
 }
 
 /* input text and number boxes */
 .my-text {
 
-    min-width: 250px;
+    /* min-width: 250px; */
     width: 100%;
     height: 30px;
     font-size: 12pt;
@@ -586,7 +587,7 @@ html, body {
 
     #table-viewer {
 
-        width: 95%;
+        width: 100%;
         overflow-x: scroll;
     }
 
