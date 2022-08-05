@@ -7,20 +7,6 @@ function cosmoToolsUI(){
         myTable   = null,
         chartURI  = null;
 
-    /** Show or hide title bar menu */
-    function showMenu(){
-        var navbar = document.getElementById("my-nav");
-        var btn    = document.getElementById("menu-btn");
-        if(navbar.className === "topnav"){
-            navbar.className += " responsive";
-            btn.innerHTML     = "&times;"
-        }
-        else {
-            navbar.className = "topnav";
-            btn.innerHTML    = "☰";
-        }
-    }
-
     /** What to do on changing the flatness switch. */
     function onFlat(){
         let flat = document.getElementById("flat").checked;
@@ -1023,7 +1009,6 @@ function cosmoToolsUI(){
 
 
     return {
-                showMenu             : showMenu,
                 onFlat               : onFlat,
                 onNeutrino           : onNeutrino,
                 onOmegaMatter        : onOmegaMatter,

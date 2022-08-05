@@ -10,25 +10,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <link rel="shortcut icon" href="./icons/favicon.svg" type="image/x-icon">    
     <link rel="stylesheet" href="./styles/cosmo-calc-styles.css">
-    <!-- <script src="./javascript/ui.js"></script> -->
+    <link rel="stylesheet" href="./styles/cosmo-tools-navbar.css">
     <script src="./javascript/ui.js"></script>
+    <script src="./javascript/menubar.js"></script>
     <title>CosmoTools: Cosmology Setup</title>
 </head>
 
 <body onload="">
 
-    <div class="topbar">
-        <div class="title-bar">
+    <nav>
+        <div id="menu-btn" onclick="showMenu()">☰</div>
+        <div class="my-logo">
             <img src="./icons/logo.svg" alt="CosmoTools">
-            <button id="menu-btn" onclick="UI.showMenu()">☰</button>
         </div>
-    
-        <div class="topnav" id="my-nav">
-            <a href="#home">Home</a>
-            <a href="#docs">Guide</a>
-            <a href="#about">About</a>
+        <div class="my-menu" id="menu">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#docs">Guide</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
         </div>
-    </div>
+    </nav>
+
 
     <div class="calc-body-container">
 
@@ -48,7 +51,7 @@
                 <option value="plank18">Plank 2018</option>
                 <option value="plank15">Plank 2015</option>
                 <option value="wmap08">WMAP 2008</option>
-                <option value="millanium">Millanuim</option>
+                <option value="millanium">Millanium</option>
             </select>
 
             <form action="./calculator-index.html" method="get">

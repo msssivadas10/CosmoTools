@@ -1,0 +1,149 @@
+/**************************************************
+ * styles for CosmoTools navbar               * 
+ **************************************************/
+
+nav {
+
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
+    display: flex;
+    background-color: #fff;
+}
+
+nav + .calc-body-container {
+
+    padding-top: 150px;
+}
+
+.my-logo {
+
+    width: 50%;
+}
+
+.my-logo img {
+
+    height: 50px;
+    margin-top: 15px;
+    margin-left: 10px;
+    display: block;
+}
+
+
+.my-menu {
+
+    background-color: #fff;
+    overflow: hidden;
+    width: 50%;
+}
+
+.my-menu ul {
+
+    list-style-type: none;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+
+.my-menu ul li {
+
+    margin: 0 5px;
+}
+
+.my-menu ul li a {
+
+    text-decoration: none;
+    color: #000;
+    position: relative;
+}
+
+.my-menu ul li a::before {
+
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: #000;
+    bottom: 0;
+    left: 0;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .3s ease-in-out;
+}
+
+.my-menu ul li a:hover::before {
+
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+
+#menu-btn {
+
+    display: none;
+    position: absolute;
+    left: 10px;
+    top: 20px;
+    width: 40px;
+    height: 40px;
+    font-size: 22pt;
+    border-style: none;
+    color: #444;
+    cursor: pointer;
+}
+
+/* responsive design (for devise width < 800 px) */
+
+@media screen and (max-width: 800px) {
+
+    nav {
+
+        display: block;
+        height: auto;
+    }
+
+    .my-logo {
+
+        width: 100%;
+    }
+
+    .my-logo img {
+
+        height: 35px;
+        margin: 20px auto;
+        display: block;
+    }
+
+    .my-menu {
+
+        width: 100%;
+        display: none;
+    }
+
+    .responsive {
+
+        display: block;
+    }
+
+    .my-menu ul {
+
+        display: block;
+        text-align: center;
+        margin: 5px auto;
+        padding: 0;
+    }
+
+    .my-menu ul li {
+
+        margin: 10px auto;
+    }
+    
+    #menu-btn {
+
+        display: block;
+    }
+}

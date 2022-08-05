@@ -11,25 +11,28 @@
     <link rel="shortcut icon" href="./icons/favicon.svg" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <link rel="stylesheet" href="./styles/cosmo-calc-styles.css">
+    <link rel="stylesheet" href="./styles/cosmo-tools-navbar.css">
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="./javascript/cosmo.js"></script>
     <script src="./javascript/ui.js"></script>
+    <script src="./javascript/menubar.js"></script>
 </head>
 
 <body onload="UI.getParameters();">
 
-    <div class="topbar">
-        <div class="title-bar">
+    <nav>
+        <div id="menu-btn" onclick="showMenu()">☰</div>
+        <div class="my-logo">
             <img src="./icons/logo.svg" alt="CosmoTools">
-            <button id="menu-btn" onclick="UI.showMenu()">☰</button>
         </div>
-    
-        <div class="topnav" id="my-nav">
-            <a href="#home">Home</a>
-            <a href="#docs">Guide</a>
-            <a href="#about">About</a>
+        <div class="my-menu" id="menu">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#docs">Guide</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
         </div>
-    </div>
+    </nav>
     
     
     <div class="calc-body-container">
