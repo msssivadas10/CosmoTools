@@ -120,6 +120,10 @@
 
             <!-- Table view -->
             <div class="table-container" id="table-viewer">
+                <div class="download-panel">
+                    <button class="ctrl-btn" onclick="UI.downloadData()">&downarrow;</button>
+                    <input type="text" id="fname-tbl" placeholder="Enter filename">
+                </div>
                 <table class="my-table" id="table-1"></table>
             </div>
 
@@ -173,9 +177,10 @@
 
                 <!-- Chart area -->
 
-                <button type="button" class="ctrl-btn" id="img-btn" title="View as Image" onclick="UI.openChartAsImage()">
-                    <img src="./icons/image.svg">
-                </button>
+                <div class="download-panel">
+                    <button class="ctrl-btn" onclick="UI.downloadImage()">&downarrow;</button>
+                    <input type="text" id="fname-img" placeholder="Enter filename">
+                </div>
 
                 <div class="chart-area" id="chart-area">
                     <div id="my-chart"></div>

@@ -867,7 +867,7 @@ function cosmoToolsUI(){
     }
 
     /** Open the chart as an image on another tab. */
-    function openChartAsImage(){
+    function downloadImage(){
 
         if (chartURI == null) {
             
@@ -877,14 +877,32 @@ function cosmoToolsUI(){
             return;
         }
 
-        var str = "";
-        str += "<html><head><title>" + myTable.title + "</title>"
-        str += "<style>img{display: block; margin: auto; width: 640px;}</style>"
-        str += "</head><body>";
-        str += "<img src=" + chartURI + " >";
-        str += "</body></html>";
+        // var str = "";
+        // str += "<html><head><title>" + myTable.title + "</title>"
+        // str += "<style>img{display: block; margin: auto; width: 640px;}</style>"
+        // str += "</head><body>";
+        // str += "<img src=" + chartURI + " >";
+        // str += "</body></html>";
 
-        return window.open("").document.write(str);
+        // return window.open("").document.write(str);
+
+        // get filename
+        let fname = document.getElementById("fname-img").value.trim();
+        if (fname === ''){
+            var alertBox = document.getElementById('alert-msg-viewer');
+                alertBox.innerHTML = "<strong>Error!</strong> Filename is not given.";
+                alertBox.parentElement.style.display = "block";
+                return;
+        }
+        
+        // create a download link
+        let a = document.createElement('a');
+        a.setAttribute('href', chartURI);
+        a.setAttribute('download', fname);
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+
     }
 
     /** Show the table */
@@ -906,13 +924,13 @@ function cosmoToolsUI(){
         let i = 0;
         for (let row of myTable.rows){
 
-            if (i === 1000){
+            // if (i === 1000){
 
-                var alertBox = document.getElementById('alert-msg-viewer');
-                alertBox.innerHTML = "<strong>Warning!</strong> Only the first " + i + " lines will be shown. Use the 'View as CSV' option to view full data.";
-                alertBox.parentElement.style.display = "block";
-                break;
-            }
+            //     var alertBox = document.getElementById('alert-msg-viewer');
+            //     alertBox.innerHTML = "<strong>Warning!</strong> Only the first " + i + " lines will be shown. Use the 'View as CSV' option to view full data.";
+            //     alertBox.parentElement.style.display = "block";
+            //     break;
+            // }
 
             str += "<tr>";
             for (let data of row){
@@ -935,8 +953,8 @@ function cosmoToolsUI(){
         document.getElementById("chart-viewer").style.display = "none";
     }
 
-    /** View full data on a new blank page in CSV format */
-    function viewDataAsCSV(){
+    /** download full data on a new blank page in CSV format */
+    function downloadData(){
 
         if (myTable == null){
             return;
@@ -944,22 +962,35 @@ function cosmoToolsUI(){
 
         var str = "";
 
-        str += "<html>";
-        str += "<head><title>" + myTable.title + "</title></head>";
-        str += "<style>body{font-family:'Courier New', Courier, monospace;font-size: 12pt;}</style>"
-        str += "<body>";
-        str += "#" + myTable.cols.join(", ") + "<br>";
+        str += "#" + myTable.cols.join(", ") + "\n";
         for (let row of myTable.rows){
 
             let r = [];
             for (let data of row){
                 r.push( data.toExponential(8) );
             }
-            str += r.join(", ") + "<br>";
+            str += r.join(", ") + "\n";
         }
-        str += "</body></html>";
 
-        return window.open("").document.write(str);
+        // return window.open("").document.write(str);
+
+        // get filename
+        let fname = document.getElementById("fname-tbl").value.trim();
+        if (fname === ''){
+            var alertBox = document.getElementById('alert-msg-viewer');
+                alertBox.innerHTML = "<strong>Error!</strong> Filename is not given.";
+                alertBox.parentElement.style.display = "block";
+                return;
+        }
+        
+        // create a download link
+        let a = document.createElement('a');
+        a.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(str));
+        a.setAttribute('download', fname);
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+
     }
 
     /** Close viewer tab */
@@ -1017,8 +1048,8 @@ function cosmoToolsUI(){
                 toggleAdvancedOptions: toggleAdvancedOptions,
                 showTable            : showTable,
                 showChart            : showChart,
-                openChartAsImage     : openChartAsImage,
-                viewDataAsCSV        : viewDataAsCSV,
+                downloadImage        : downloadImage,
+                downloadData         : downloadData,
                 closeViewer          : closeViewer,
                 calculatePower       : calculatePower,
                 calculateCorrfunc    : calculateCorrfunc,
