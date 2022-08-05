@@ -293,6 +293,7 @@ html, body {
     width: 50%;
     height: 40px;
     margin: auto;
+    font-family: 'Didact Gothic', 'URW Gothic', Helvetica, sans-serif;
     font-size: 12pt;
     font-weight: bold;
     background-color: #eee;
