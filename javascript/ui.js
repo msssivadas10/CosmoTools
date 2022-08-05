@@ -360,10 +360,10 @@ function cosmoToolsUI(){
 
         if (display === "none" || display === ""){
             content.style.display = "block";
-            icon.innerHTML        = "&bigtriangleup;";
+            icon.innerHTML        = "▾";
         } else {
             content.style.display = "none";
-            icon.innerHTML        = "&bigtriangledown;"
+            icon.innerHTML        = "▸"
         }
     }
 
