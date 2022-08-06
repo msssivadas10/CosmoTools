@@ -1,0 +1,28 @@
+:root {
+
+    --orange1: #fd5901;
+    --orange2: #f78104;
+    --lightorange: #faab36;
+}
+
+
+/* html and body styles */
+html, body {
+
+    margin: 0;
+    padding: 0;
+    font-family: 'Didact Gothic', 'URW Gothic', Helvetica, sans-serif;
+    font-size: 12pt;
+    background-color: #fefefe;
+}
+
+.container {
+
+    width: 95%;
+    margin: auto;
+}
+
+nav + .container {
+
+    padding-top: 100px;
+}

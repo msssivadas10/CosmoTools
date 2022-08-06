@@ -13,11 +13,6 @@ nav {
     background-color: #fff;
 }
 
-nav + .calc-body-container {
-
-    padding-top: 150px;
-}
-
 .my-logo {
 
     width: 50%;

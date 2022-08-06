@@ -55,15 +55,40 @@
 
         <!-- Calculator mode selection -->
 
-        <div class="mode-select">
-            <div class="mode-select-group">
-                <button class="mode-btn" id="ps-mode" onclick="UI.selectMode('ps')">Matter Power Spectrum</button>
-                <button class="mode-btn" id="xi-mode" onclick="UI.selectMode('xi')">Matter Correlation</button>
+        <div class="mode-card-container">
+            
+            <div class="mode-card" onclick="UI.selectMode('ps')">
+                <img src="./icons/calculator-card.svg" style="background-color: #f44336;">
+                <div class="card-name">
+                    <p><strong>Matter Power Spectrum</strong></p>
+                    <p>Calculate power spectrum, transfer function and more...</p>
+                </div>
             </div>
-            <div class="mode-select-group">
-                <button class="mode-btn" id="mf-mode" onclick="UI.selectMode('mf')">Halo Mass-function</button>
-                <button class="mode-btn" id="zg-mode" onclick="UI.selectMode('zg')">Linear Growth</button>
+
+            <div class="mode-card" onclick="UI.selectMode('xi')">
+                <img src="./icons/calculator-card.svg" style="background-color: #ffcc00;">
+                <div class="card-name">
+                    <p><strong>Matter Correlation</strong></p>
+                    <p>Calculate 2-point correlation function.</p>
+                </div>
             </div>
+
+            <div class="mode-card" onclick="UI.selectMode('mf')">
+                <img src="./icons/calculator-card.svg" style="background-color: #00aa44;">
+                <div class="card-name">
+                    <p><strong>Halo Mass-function</strong></p>
+                    <p>Calculate halo mass-function and more...</p>
+                </div>
+            </div>
+
+            <div class="mode-card" onclick="UI.selectMode('zg')">
+                <img src="./icons/calculator-card.svg" style="background-color: #00aad4;">
+                <div class="card-name">
+                    <p><strong>Linear Growth</strong></p>
+                    <p>Calculate linear growth factor and rate.</p>
+                </div>
+            </div>
+
         </div>
 
     </div>
