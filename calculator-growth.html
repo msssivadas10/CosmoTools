@@ -173,6 +173,47 @@
                     
                 </div>
 
+                <strong>Customization</strong><br>
+
+                <div class="chart-opt-container" id="chart-opts">
+
+                    <!-- Area options -->
+                    <div class="chart-opt-ax">
+                        <div class="cosmo-input-set">
+                            <div class="input-container">
+                                <label>Width:</label><br>
+                                <input class="my-text" type="number" id="chart-width" min="300" max="2000" value="640" step="1" onchange="UI.showChart()">
+                            </div>
+                            <div class="input-container">
+                                <label>Height:</label><br>
+                                <input class="my-text" type="number" id="chart-height" min="300" max="2000" value="480" step="1" onchange="UI.showChart()">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Line options -->
+                    <div class="chart-opt-ax">
+                        <div class="cosmo-input-set">
+                            <div class="input-container">
+                                <label>Line Colour:</label><br>
+                                <select id="line-colour" class="my-select" onchange="UI.showChart()">
+                                    <option value="#f78104">Orange</option>
+                                    <option value="#00aad4">Blue</option>
+                                    <option value="#f44336">Red</option>
+                                    <option value="#00aa44">Green</option>
+                                    <option value="#ffcc00">Yellow</option>
+                                    <option value="#000000">Black</option>
+                                </select>
+                            </div>
+                            <div class="input-container">
+                                <label>Line Width:</label><br>
+                                <input class="my-text" type="number" id="line-width" min="0.1" max="5" value="2" step="0.1" onchange="UI.showChart()">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
                 <!-- Chart area -->
 
                 <div class="download-panel">

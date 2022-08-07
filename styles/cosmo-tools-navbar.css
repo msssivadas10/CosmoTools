@@ -11,6 +11,7 @@ nav {
     box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
     display: flex;
     background-color: #fff;
+    z-index: 2;
 }
 
 .my-logo {
@@ -27,9 +28,12 @@ nav {
 }
 
 
+/*
+ * menu 
+ */
 .my-menu {
 
-    background-color: #fff;
+    /* background-color: #fff; */
     overflow: hidden;
     width: 50%;
 }
@@ -85,10 +89,84 @@ nav {
     top: 20px;
     width: 40px;
     height: 40px;
-    font-size: 22pt;
+    font-size: 18pt;
     border-style: none;
     color: #444;
     cursor: pointer;
+}
+
+
+/*
+ * sidebar menu
+ */
+
+.sidebar {
+
+    width: 250px;
+    height: 100%;
+    padding-top: 100px;
+    background-color: #f2f2f2;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    transition: 0.5s;
+}
+
+.sidebar ul, .sidebar ul ul {
+
+    list-style-type: none;
+    width: 100%;
+    font-size: 12pt;
+    padding: 0;
+}
+
+.sidebar ul li, .sidebar ul ul li {
+
+    width: 100%;
+    margin: 0;
+    height: 30px;
+}
+
+.sidebar ul li {
+
+    padding-left: 30px;
+}
+
+.sidebar ul ul li {
+
+    padding-left: 50px;
+}
+
+.sidebar ul li:hover, .sidebar ul ul li:hover {
+
+    background-color: #eee;
+    color: #fff;
+    border-left-style: solid;
+    border-left-width: 5px;
+}
+
+.sidebar ul li:hover {
+
+    border-left-color: #f78104;
+}
+
+.sidebar ul ul li:hover {
+
+    border-left-color: #00aa44;
+}
+
+.sidebar ul li a {
+
+    text-decoration: none;
+    color: #444;
+}
+
+.sidebar ul li a:hover {
+
+    color: #000;
 }
 
 /* responsive design (for devise width < 800 px) */
@@ -108,7 +186,7 @@ nav {
 
     .my-logo img {
 
-        height: 35px;
+        height: 30px;
         margin: 20px auto;
         display: block;
     }
@@ -116,12 +194,15 @@ nav {
     .my-menu {
 
         width: 100%;
-        display: none;
+        display: block;
+        height: 0;
+        transition: 0.5s;
+        box-shadow: 0px 8px 8px 0px rgba(0,0,0,0.2);
     }
 
     .responsive {
 
-        display: block;
+        height: 120px;
     }
 
     .my-menu ul {

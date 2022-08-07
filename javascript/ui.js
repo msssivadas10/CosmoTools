@@ -786,7 +786,13 @@ function cosmoToolsUI(){
             }
         }
 
-        return { xcol: xcol, ycol: ycol, xscale: xscale, yscale: yscale };
+        // get width and height
+        let w   = document.getElementById("chart-width").value;
+        let h   = document.getElementById("chart-height").value;
+        let col = document.getElementById("line-colour").value;
+        let lw  = document.getElementById("line-width").value;
+
+        return { xcol: xcol, ycol: ycol, xscale: xscale, yscale: yscale, width: w, height: h, colour: col, lw: lw };
     }
 
     /** Create a chart with google charts */
@@ -795,7 +801,15 @@ function cosmoToolsUI(){
         /** Create the chart. */
         function makeChart(){
 
-            const { xcol, ycol, xscale, yscale } = getChartOptions();
+            const { xcol, ycol, xscale, yscale, width, height, colour, lw } = getChartOptions();
+
+            let chartArea = document.getElementById("my-chart");
+            chartArea.style.width  = width + "px";
+            chartArea.style.height = height + "px";
+
+
+            console.log(chartArea.style.width);
+
 
             var xtitle = myTable.cols[xcol], 
                 ytitle = myTable.cols[ycol];
@@ -823,9 +837,12 @@ function cosmoToolsUI(){
                                             format  : 'scientific',
                                     },
                                 legend: 'none',
+                                colors: [colour],
+                                lineWidth: lw,
+                                chartArea: {width: width-100, height: height-100},
                         };
             
-            var chart1 = new google.visualization.LineChart(document.getElementById('my-chart'));
+            var chart1 = new google.visualization.LineChart(chartArea);
             google.visualization.events.addListener(chart1, 'ready', function () { chartURI = chart1.getImageURI();});
             chart1.draw(data, options);
         }
