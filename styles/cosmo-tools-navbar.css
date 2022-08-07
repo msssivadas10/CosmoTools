@@ -126,7 +126,7 @@ nav {
         display: block;
         height: 0;
         transition: 0.5s;
-        box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.2);
+        box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2);
     }
 
     .responsive {
