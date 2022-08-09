@@ -808,7 +808,7 @@ function cosmoToolsUI(){
             chartArea.style.height = height + "px";
 
 
-            console.log(chartArea.style.width);
+            // console.log(chartArea.style.width);
 
 
             var xtitle = myTable.cols[xcol], 
@@ -846,7 +846,7 @@ function cosmoToolsUI(){
             google.visualization.events.addListener(chart1, 'ready', function () { chartURI = chart1.getImageURI();});
             chart1.draw(data, options);
         }
-
+        
         try{
 
             google.charts.load('current',{packages:['corechart']});

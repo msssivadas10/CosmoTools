@@ -1,8 +1,12 @@
 :root {
 
-    --orange1: #fd5901;
-    --orange2: #f78104;
-    --lightorange: #faab36;
+    /* oranges */
+    --orange0: #f26a1d;
+    --orange1: #f87c23;
+    --orange2: #f49325;
+    --orange3: #f9a820;
+
+    /* others */
     --yellow: #ffcc00;
     --green: #00aa44;
     --red: #f44336;
@@ -18,7 +22,7 @@ html, body {
 
     margin: 0;
     padding: 0;
-    font-family: 'Didact Gothic', 'URW Gothic', Helvetica, sans-serif;
+    font-family: 'URW Gothic', 'Didact Gothic', Helvetica, sans-serif;
     font-size: 12pt;
     background-color: #fefefe;
 }
@@ -90,7 +94,7 @@ nav + .calc-body-container {
     border-style: none;
     color: black;
     font-size: 12pt;
-    font-family: 'Didact Gothic', 'URW Gothic', Helvetica, sans-serif;
+    font-family: 'URW Gothic', 'Didact Gothic', Helvetica, sans-serif;
     /* font-weight: 600; */
     text-align: left;
     padding-left: 20px;
@@ -283,67 +287,6 @@ nav + .calc-body-container {
  * calculator mode selection 
  */
 
-/* 
-mode selection container
-.mode-select, .mode-select-group {
-
-    width: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-.mode-select {
-
-    display: block;
-}
-
-.mode-select-group {
-
-    display: flex;
-} 
-mode selection button 
-.mode-btn, .close-btn {
-
-    border-style: none;
-    width: 50%;
-    height: 40px;
-    margin: auto;
-    font-family: 'Didact Gothic', 'URW Gothic', Helvetica, sans-serif;
-    font-size: 12pt;
-    font-weight: bold;
-    background-color: #eee;
-}
-
-.close-btn {
-
-    width: 100%;
-}
-
-.mode-btn:hover, .close-btn:hover {
-
-    border-bottom-style: solid;
-    border-bottom-width: 5px;
-}
-
-.mode-btn:hover {
-
-    border-bottom-color: var(--orange2);
-}
-
-.close-btn:hover {
-
-    border-bottom-color: #f44336;
-}
-
-.active-mode {
-
-    background-color: var(--orange2);
-    color: white;
-}
-
-*/
-
-
 .mode-card-container {
 
     display: flex;
@@ -474,7 +417,7 @@ mode selection button
     width: 100%;
     height: 30px;
     font-size: 12pt;
-    font-family: 'Didact Gothic', 'URW Gothic', Helvetica, sans-serif;
+    font-family: 'URW Gothic', 'Didact Gothic', Helvetica, sans-serif;
     margin: 10px 0 ;
     padding: 2px;
     border: none;
@@ -490,14 +433,14 @@ mode selection button
     background-color: var(--orange2);
     color: white;
     font-size: 12pt;
-    font-family: 'Didact Gothic', 'URW Gothic', Helvetica, sans-serif;
+    font-family: 'URW Gothic', 'Didact Gothic', Helvetica, sans-serif;
     border-radius: 10px;
     border-style: none;
 }
 
 .my-submit:hover {
 
-    background-color: var(--lightorange);
+    background-color: var(--orange3);
     box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
 }
 
@@ -512,7 +455,7 @@ mode selection button
     width: 200px;
     height: 40px;
     font-size: 12pt;
-    font-family: 'Didact Gothic', 'URW Gothic', Helvetica, sans-serif;
+    font-family: 'URW Gothic', 'Didact Gothic', Helvetica, sans-serif;
     margin: 10px 5px 10px 5px;
     background-color: #eee;
     border-style: none;
@@ -522,6 +465,11 @@ mode selection button
 .my-select:hover {
 
     box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
+}
+
+.my-range {
+
+    width: 200px;
 }
 
 /* 
@@ -553,12 +501,13 @@ mode selection button
     width: calc(100% - 55px);
     height: 40px;
     font-size: 12pt;
-    font-family: 'Didact Gothic', 'URW Gothic', Helvetica, sans-serif;
+    font-family: 'URW Gothic', 'Didact Gothic', Helvetica, sans-serif;
     margin: 5px 0;
     padding: 0;
     border: none;
     border-bottom: 1px solid #aaa;
 }
+
 
 /* responsive design (for devise width < 800 px) */
 
@@ -567,6 +516,7 @@ mode selection button
     .cosmo-input-set {
 
         display: block;
+        margin: auto;
     }
 
     .input-container {
@@ -589,6 +539,7 @@ mode selection button
     .chart-opt-container {
 
         display: block;
+        margin: auto;
     }
 
     .chart-opt-ax {
@@ -596,33 +547,6 @@ mode selection button
         width: 95%;
         display: block;
     }
-
-    /* .mode-select-group {
-
-        display: block;
-    }
-
-    .mode-btn, .close-btn {
-
-        width: 100%;
-    }
-
-    .mode-btn:hover, .close-btn:hover {
-
-        border-bottom-style: none;
-        border-left-style: solid;
-        border-left-width: 5px;
-    }
-
-    .mode-btn:hover, .close-btn:hover {
-
-        border-left-color: var(--orange2);
-    }
-
-    .close-btn:hover {
-
-        border-left-color: #f44336;
-    } */
 
     .mode-card-container {
 
@@ -655,9 +579,21 @@ mode selection button
         margin: auto;
     }
 
+    .my-range {
+
+        width: 100%;
+        margin: auto;
+    }
+
     #ps-chart-opts {
 
         display: block;
+    }
+
+    .col-dropbtn {
+
+        width: 100%;
+        margin: auto;
     }
 }
 
